@@ -2,6 +2,8 @@
 
 #include <QLineEdit>
 
+namespace roler {
+
 class PasswordLineEdit : public QLineEdit {
     Q_OBJECT
 public:
@@ -18,3 +20,5 @@ private:
     QAction *m_show;
     QAction *m_hide;
 };
+
+}  // namespace roler

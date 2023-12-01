@@ -1,7 +1,9 @@
-#include "tagwidget.h"
+#include "widgets/tagwidget.h"
 
 #include <QHBoxLayout>
 #include <QLabel>
+
+using namespace roler;
 
 TagLabel::TagLabel(QWidget *parent) : QWidget(parent) {
     init();
@@ -43,7 +45,9 @@ void TagLabel::init() {
     layout->addWidget(m_label);
     layout->addWidget(m_delete_btn);
     this->setContentsMargins(5, 0, 0, 0);
-    this->setStyleSheet("QWidget#tag_label {background-color: lightblue; border: 1px solid blue;}");
+    this->setStyleSheet(
+        "QWidget#tag_label {background-color: lightblue; border: "
+        "1px solid blue;}");
     connect(m_delete_btn, &QPushButton::clicked, this, &TagLabel::closeTag);
 }
 
@@ -53,7 +57,8 @@ TagWidget::TagWidget(QWidget *parent) : QWidget(parent) {
     m_inputLineEdit->setMaximumWidth(100);
     // TODO
     // lineEdit限制条件
-    connect(m_inputLineEdit, &QLineEdit::returnPressed, this, qOverload<>(&TagWidget::addTag));
+    connect(m_inputLineEdit, &QLineEdit::returnPressed, this,
+            qOverload<>(&TagWidget::addTag));
     setCountPerRow(5);
     updateTags();
 }
@@ -63,7 +68,7 @@ TagWidget::~TagWidget() {
 }
 
 void TagWidget::setCountPerRow(int count) {
-    count = qMax(count, 1); // 最少一个
+    count = qMax(count, 1);  // 最少一个
     m_count_per_row = count;
 }
 

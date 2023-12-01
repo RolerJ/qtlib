@@ -6,6 +6,8 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
+namespace roler {
+
 class TagLabel : public QWidget {
     Q_OBJECT
 
@@ -65,3 +67,5 @@ private:
     QVBoxLayout *m_v_layout;
     QVector<TagLabel *> m_tag_vec;
 };
+
+}  // namespace roler
