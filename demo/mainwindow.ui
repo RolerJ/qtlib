@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuwidgets">
+    <property name="title">
+     <string>widgets</string>
+    </property>
+    <addaction name="action_PasswordLineEdit"/>
+    <addaction name="action_TagWidget"/>
+   </widget>
+   <addaction name="menuwidgets"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_PasswordLineEdit">
+   <property name="text">
+    <string>PasswordLineEdit</string>
+   </property>
+  </action>
+  <action name="action_TagWidget">
+   <property name="text">
+    <string>TagWidget</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

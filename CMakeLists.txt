@@ -32,6 +32,8 @@ find_package(
   COMPONENTS Widgets
   REQUIRED)
 
+option(BUILD_DEMO "Build demo" ON)
+
 # main dir
 set(INC_DIR include/roler)
 set(SRC_DIR src)
@@ -50,3 +52,8 @@ set(SOURCE_FILES ${WIDGETS_FILES})
 add_library(roler-qtlib SHARED ${SOURCE_FILES})
 
 target_link_libraries(roler-qtlib Qt::Widgets)
+
+if(BUILD_DEMO)
+  message(STATUS "build demo")
+  add_subdirectory(demo)
+endif()

@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.5)
+
+set(PROJECT_SOURCES main.cpp mainwindow.cpp mainwindow.h mainwindow.ui)
+
+include_directories(../include)
+
+add_executable(demo ${PROJECT_SOURCES})
+
+target_link_libraries(
+  demo
+  PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+  PRIVATE roler-qtlib)
