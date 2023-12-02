@@ -28,10 +28,8 @@ void PasswordLineEdit::getSwitchIcons(QIcon *show_icon, QIcon *hide_icon) {
 }
 
 void PasswordLineEdit::init() {
-    m_hide = this->addAction(QIcon(":/images/hide.svg"),
-                             QLineEdit::TrailingPosition);
-    m_show = this->addAction(QIcon(":/images/show.svg"),
-                             QLineEdit::TrailingPosition);
+    m_hide = this->addAction(QIcon(), QLineEdit::TrailingPosition);
+    m_show = this->addAction(QIcon(), QLineEdit::TrailingPosition);
     m_show->setVisible(false);
     connect(m_hide, &QAction::triggered, this, [this]() {
         this->setEchoMode(QLineEdit::Normal);
