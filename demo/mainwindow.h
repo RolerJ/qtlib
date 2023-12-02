@@ -20,6 +20,7 @@ private:
     void init();
     void initPasswordLineEdit();
     void initTagWidget();
+    void initSyncCheckBox();
 
 private:
     Ui::MainWindow *ui;

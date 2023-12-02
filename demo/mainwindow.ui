@@ -35,6 +35,7 @@
     </property>
     <addaction name="action_PasswordLineEdit"/>
     <addaction name="action_TagWidget"/>
+    <addaction name="action_SyncCheckBox"/>
    </widget>
    <addaction name="menuwidgets"/>
   </widget>
@@ -47,6 +48,11 @@
   <action name="action_TagWidget">
    <property name="text">
     <string>TagWidget</string>
+   </property>
+  </action>
+  <action name="action_SyncCheckBox">
+   <property name="text">
+    <string>SyncCheckBox</string>
    </property>
   </action>
  </widget>

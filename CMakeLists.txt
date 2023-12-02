@@ -45,7 +45,8 @@ set(INC_WIDGETS ${INC_DIR}/widgets)
 set(SRC_WIDGETS ${SRC_DIR}/widgets)
 set(WIDGETS_FILES
     ${INC_WIDGETS}/passwordlineedit.h ${SRC_WIDGETS}/passwordlineedit.cpp
-    ${INC_WIDGETS}/tagwidget.h ${SRC_WIDGETS}/tagwidget.cpp)
+    ${INC_WIDGETS}/tagwidget.h ${SRC_WIDGETS}/tagwidget.cpp
+    ${INC_WIDGETS}/synccheckbox.h ${SRC_WIDGETS}/synccheckbox.cpp)
 
 set(SOURCE_FILES ${WIDGETS_FILES})
 
