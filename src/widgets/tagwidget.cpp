@@ -55,8 +55,6 @@ TagWidget::TagWidget(QWidget *parent) : QWidget(parent) {
     m_inputLineEdit = new QLineEdit(this);
     m_inputLineEdit->setPlaceholderText(tr("Input Label"));
     m_inputLineEdit->setMaximumWidth(100);
-    // TODO
-    // lineEdit限制条件
     connect(m_inputLineEdit, &QLineEdit::returnPressed, this, qOverload<>(&TagWidget::addTag));
     setCountPerRow(5);
     updateTags();

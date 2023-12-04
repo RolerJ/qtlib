@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QCheckBox>
-#include <QList>
+#include <list>
 
 namespace roler {
 
@@ -22,7 +22,7 @@ public:
     void setChildCheckBoxList(const QList<QCheckBox *> &list);
 
     // Get child checkbox set
-    const QList<QCheckBox *> &childCheckBoxList() const;
+    const std::list<QCheckBox *> &childCheckBoxList() const;
 
     // Clear child checkbox list
     void clear();
@@ -34,9 +34,10 @@ private slots:
     void updateCheckState();
     void onStateChanged(int state);
     void onClicked(bool checked);
+    void checkBoxDestroyed(QObject *obj);
 
 private:
-    QList<QCheckBox *> m_list;
+    std::list<QCheckBox *> m_list;
 };
 
 }  // namespace roler

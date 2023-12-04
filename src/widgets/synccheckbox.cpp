@@ -1,4 +1,5 @@
 #include "widgets/synccheckbox.h"
+#include <qglobal.h>
 
 using namespace roler;
 
@@ -12,28 +13,34 @@ SyncCheckBox::~SyncCheckBox() {
 
 void SyncCheckBox::addChildCheckBox(QCheckBox *checkbox) {
     Q_ASSERT(checkbox);
-    if (m_list.contains(checkbox))
+    auto it = std::find(m_list.begin(), m_list.end(), checkbox);
+    if (it != m_list.end()) {
         return;
-    m_list.append(checkbox);
+    }
+    m_list.push_back(checkbox);
     connect(checkbox, &QCheckBox::stateChanged, this, &SyncCheckBox::updateCheckState);
+    connect(checkbox, &QObject::destroyed, this, &SyncCheckBox::checkBoxDestroyed);
 }
 
 void SyncCheckBox::removeChildCheckBox(QCheckBox *checkbox) {
-    if (!m_list.contains(checkbox))
+    Q_ASSERT(checkbox);
+    auto it = std::find(m_list.begin(), m_list.end(), checkbox);
+    if (it == m_list.end()) {
         return;
+    }
     disconnect(checkbox, &QCheckBox::stateChanged, this, &SyncCheckBox::updateCheckState);
-    m_list.removeOne(checkbox);
+    disconnect(checkbox, &QObject::destroyed, this, &SyncCheckBox::checkBoxDestroyed);
+    m_list.erase(it);
 }
 
 void SyncCheckBox::setChildCheckBoxList(const QList<QCheckBox *> &list) {
     clear();
-    m_list = list;
-    for (QCheckBox *cb : m_list) {
-        connect(cb, &QCheckBox::stateChanged, this, &SyncCheckBox::updateCheckState);
+    for (QCheckBox *cb : list) {
+        addChildCheckBox(cb);
     }
 }
 
-const QList<QCheckBox *> &SyncCheckBox::childCheckBoxList() const {
+const std::list<QCheckBox *> &SyncCheckBox::childCheckBoxList() const {
     return m_list;
 }
 
@@ -66,8 +73,16 @@ void roler::SyncCheckBox::onClicked(bool checked) {
         this->setCheckState(Qt::Checked);
 }
 
+void roler::SyncCheckBox::checkBoxDestroyed(QObject *obj) {
+    auto it = std::find(m_list.begin(), m_list.end(), obj);
+    if (it == m_list.end()) {
+        return;
+    }
+    m_list.erase(it);
+}
+
 void SyncCheckBox::updateCheckState() {
-    if (m_list.isEmpty())
+    if (m_list.empty())
         return;
 
     int checked_count = 0;
@@ -81,12 +96,12 @@ void SyncCheckBox::updateCheckState() {
         return;
     }
 
-    if (checked_count == m_list.count() && this->checkState() != Qt::Checked) {
+    if (checked_count == m_list.size() && this->checkState() != Qt::Checked) {
         this->setCheckState(Qt::Checked);
         return;
     }
 
-    if (checked_count != 0 && checked_count < m_list.count() && this->checkState() != Qt::PartiallyChecked) {
+    if (checked_count != 0 && checked_count < m_list.size() && this->checkState() != Qt::PartiallyChecked) {
         this->setCheckState(Qt::PartiallyChecked);
         return;
     }
