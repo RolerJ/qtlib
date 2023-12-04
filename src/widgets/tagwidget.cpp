@@ -57,8 +57,7 @@ TagWidget::TagWidget(QWidget *parent) : QWidget(parent) {
     m_inputLineEdit->setMaximumWidth(100);
     // TODO
     // lineEdit限制条件
-    connect(m_inputLineEdit, &QLineEdit::returnPressed, this,
-            qOverload<>(&TagWidget::addTag));
+    connect(m_inputLineEdit, &QLineEdit::returnPressed, this, qOverload<>(&TagWidget::addTag));
     setCountPerRow(5);
     updateTags();
 }

@@ -25,6 +25,7 @@ set(CMAKE_AUTOUIC ON)
 
 if(MSVC)
   string(APPEND CMAKE_CXX_FLAGS " /Zc:__cpluscplus /MP")
+  SET(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif()
 
 find_package(
