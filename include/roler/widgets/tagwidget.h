@@ -40,9 +40,6 @@ public:
     TagWidget(QWidget *parent = nullptr);
     ~TagWidget() override;
 
-    // void setMaxLabelLength(int len);
-    // int maxLabelLength() const;
-
     void setCountPerRow(int count);
     int countPerRow() const;
 

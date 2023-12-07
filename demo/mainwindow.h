@@ -21,6 +21,7 @@ private:
     void initPasswordLineEdit();
     void initTagWidget();
     void initSyncCheckBox();
+    void initPagingWidget();
 
 private:
     Ui::MainWindow *ui;

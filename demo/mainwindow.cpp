@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <QPixmap>
 
+#include "roler/widgets/paginationwidget.h"
 #include "roler/widgets/passwordlineedit.h"
 #include "roler/widgets/synccheckbox.h"
 #include "roler/widgets/tagwidget.h"
@@ -24,6 +25,7 @@ void MainWindow::init() {
     initPasswordLineEdit();
     initTagWidget();
     initSyncCheckBox();
+    initPagingWidget();
 }
 
 void MainWindow::initPasswordLineEdit() {
@@ -62,3 +64,5 @@ void MainWindow::initSyncCheckBox() {
     connect(ui->action_SyncCheckBox, &QAction::triggered, this,
             [this, index]() { ui->stackedWidget->setCurrentIndex(index); });
 }
+
+void MainWindow::initPagingWidget() {}

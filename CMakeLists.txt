@@ -25,7 +25,7 @@ set(CMAKE_AUTOUIC ON)
 
 if(MSVC)
   string(APPEND CMAKE_CXX_FLAGS " /Zc:__cpluscplus /MP")
-  SET(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif()
 
 find_package(
@@ -45,9 +45,14 @@ include_directories(${INC_DIR})
 set(INC_WIDGETS ${INC_DIR}/widgets)
 set(SRC_WIDGETS ${SRC_DIR}/widgets)
 set(WIDGETS_FILES
-    ${INC_WIDGETS}/passwordlineedit.h ${SRC_WIDGETS}/passwordlineedit.cpp
-    ${INC_WIDGETS}/tagwidget.h ${SRC_WIDGETS}/tagwidget.cpp
-    ${INC_WIDGETS}/synccheckbox.h ${SRC_WIDGETS}/synccheckbox.cpp)
+    ${INC_WIDGETS}/passwordlineedit.h
+    ${SRC_WIDGETS}/passwordlineedit.cpp
+    ${INC_WIDGETS}/tagwidget.h
+    ${SRC_WIDGETS}/tagwidget.cpp
+    ${INC_WIDGETS}/synccheckbox.h
+    ${SRC_WIDGETS}/synccheckbox.cpp
+    ${INC_WIDGETS}/paginationwidget.h
+    ${SRC_WIDGETS}/paginationwidget.cpp)
 
 set(SOURCE_FILES ${WIDGETS_FILES})
 

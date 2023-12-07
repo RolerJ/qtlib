@@ -6,6 +6,7 @@ namespace roler {
 
 class PasswordLineEdit : public QLineEdit {
     Q_OBJECT
+
 public:
     PasswordLineEdit(QWidget *parent = nullptr);
     ~PasswordLineEdit() override;
