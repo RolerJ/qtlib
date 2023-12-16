@@ -7,6 +7,7 @@ namespace roler {
 
 class LengthHintLineEdit : public QLineEdit {
     Q_OBJECT
+
 public:
     explicit LengthHintLineEdit(QWidget *parent = nullptr);
 
