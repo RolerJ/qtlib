@@ -1,9 +1,11 @@
 #pragma once
 
-#include <qpushbutton.h>
 #include <QHBoxLayout>
 #include <QLineEdit>
+#include <QPushButton>
 #include <QWidget>
+
+namespace roler {
 
 class PaginationWidget : public QWidget {
     Q_OBJECT
@@ -25,3 +27,5 @@ private:
     QPushButton *m_next;
     QLineEdit *m_jump_line_edit;
 };
+
+}  // namespace roler

@@ -1,5 +1,7 @@
 #include "widgets/paginationwidget.h"
 
+namespace roler {
+
 PaginationWidget::PaginationWidget(QWidget *parent) : QWidget(parent) {
     init();
 }
@@ -7,3 +9,5 @@ PaginationWidget::PaginationWidget(QWidget *parent) : QWidget(parent) {
 PaginationWidget::~PaginationWidget() {}
 
 void PaginationWidget::init() {}
+
+}  // namespace roler

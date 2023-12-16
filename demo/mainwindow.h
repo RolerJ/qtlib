@@ -22,8 +22,10 @@ private:
     void initTagWidget();
     void initSyncCheckBox();
     void initPagingWidget();
+    void initLengthHintLineEdit();
 
 private:
     Ui::MainWindow *ui;
+    QMenu *m_widgets_menu;
 };
 #endif  // MAINWINDOW_H

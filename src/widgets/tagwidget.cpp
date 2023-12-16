@@ -3,7 +3,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
-using namespace roler;
+namespace roler {
 
 TagLabel::TagLabel(QWidget *parent) : QWidget(parent) {
     init();
@@ -172,3 +172,5 @@ void TagWidget::addTag() {
         m_inputLineEdit->clear();
     }
 }
+
+}  // namespace roler

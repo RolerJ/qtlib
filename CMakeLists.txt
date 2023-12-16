@@ -52,7 +52,9 @@ set(WIDGETS_FILES
     ${INC_WIDGETS}/synccheckbox.h
     ${SRC_WIDGETS}/synccheckbox.cpp
     ${INC_WIDGETS}/paginationwidget.h
-    ${SRC_WIDGETS}/paginationwidget.cpp)
+    ${SRC_WIDGETS}/paginationwidget.cpp
+    ${INC_WIDGETS}/lengthhintlineedit.h
+    ${SRC_WIDGETS}/lengthhintlineedit.cpp)
 
 set(SOURCE_FILES ${WIDGETS_FILES})
 

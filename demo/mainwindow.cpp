@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <QPixmap>
 
+#include "roler/widgets/lengthhintlineedit.h"
 #include "roler/widgets/paginationwidget.h"
 #include "roler/widgets/passwordlineedit.h"
 #include "roler/widgets/synccheckbox.h"
@@ -22,10 +23,13 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::init() {
+    m_widgets_menu = ui->menubar->addMenu("Widgets");
+
     initPasswordLineEdit();
     initTagWidget();
     initSyncCheckBox();
     initPagingWidget();
+    initLengthHintLineEdit();
 }
 
 void MainWindow::initPasswordLineEdit() {
@@ -35,15 +39,16 @@ void MainWindow::initPasswordLineEdit() {
     widget->setLayout(new QHBoxLayout);
     widget->layout()->addWidget(lineEdit);
     int index = ui->stackedWidget->addWidget(widget);
-    connect(ui->action_PasswordLineEdit, &QAction::triggered, this,
-            [this, index]() { ui->stackedWidget->setCurrentIndex(index); });
+
+    auto *action = m_widgets_menu->addAction("PasswordLineEdit");
+    connect(action, &QAction::triggered, this, [this, index]() { ui->stackedWidget->setCurrentIndex(index); });
 }
 
 void MainWindow::initTagWidget() {
     TagWidget *tagWidget = new TagWidget(this);
     int index = ui->stackedWidget->addWidget(tagWidget);
-    connect(ui->action_TagWidget, &QAction::triggered, this,
-            [this, index]() { ui->stackedWidget->setCurrentIndex(index); });
+    auto *action = m_widgets_menu->addAction("TagWidget");
+    connect(action, &QAction::triggered, this, [this, index]() { ui->stackedWidget->setCurrentIndex(index); });
 }
 
 void MainWindow::initSyncCheckBox() {
@@ -61,8 +66,19 @@ void MainWindow::initSyncCheckBox() {
     v_layout->addWidget(scb);
     v_layout->addLayout(h_layout);
     int index = ui->stackedWidget->addWidget(widget);
-    connect(ui->action_SyncCheckBox, &QAction::triggered, this,
-            [this, index]() { ui->stackedWidget->setCurrentIndex(index); });
+    auto *action = m_widgets_menu->addAction("SyncCheckBox");
+    connect(action, &QAction::triggered, this, [this, index]() { ui->stackedWidget->setCurrentIndex(index); });
 }
 
 void MainWindow::initPagingWidget() {}
+
+void MainWindow::initLengthHintLineEdit() {
+    LengthHintLineEdit *line_edit = new LengthHintLineEdit(this);
+
+    QWidget *widget = new QWidget(this);
+    widget->setLayout(new QHBoxLayout);
+    widget->layout()->addWidget(line_edit);
+    int index = ui->stackedWidget->addWidget(widget);
+    auto *action = m_widgets_menu->addAction("LengthHintLineEdit");
+    connect(action, &QAction::triggered, this, [this, index]() { ui->stackedWidget->setCurrentIndex(index); });
+}

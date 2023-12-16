@@ -1,7 +1,7 @@
 #include "widgets/synccheckbox.h"
 #include <qglobal.h>
 
-using namespace roler;
+namespace roler {
 
 SyncCheckBox::SyncCheckBox(QWidget *parent) : QCheckBox(parent) {
     init();
@@ -106,3 +106,5 @@ void SyncCheckBox::updateCheckState() {
         return;
     }
 }
+
+}  // namespace roler

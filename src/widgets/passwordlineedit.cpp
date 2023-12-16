@@ -3,7 +3,7 @@
 #include <QAction>
 #include <QIcon>
 
-using namespace roler;
+namespace roler {
 
 PasswordLineEdit::PasswordLineEdit(QWidget *parent) : QLineEdit(parent) {
     init();
@@ -12,8 +12,7 @@ PasswordLineEdit::PasswordLineEdit(QWidget *parent) : QLineEdit(parent) {
 
 PasswordLineEdit::~PasswordLineEdit() {}
 
-void PasswordLineEdit::setSwitchIcons(const QIcon &show_icon,
-                                      const QIcon &hide_icon) {
+void PasswordLineEdit::setSwitchIcons(const QIcon &show_icon, const QIcon &hide_icon) {
     m_show->setIcon(show_icon);
     m_hide->setIcon(hide_icon);
 }
@@ -42,3 +41,5 @@ void PasswordLineEdit::init() {
         m_show->setVisible(false);
     });
 }
+
+}  // namespace roler

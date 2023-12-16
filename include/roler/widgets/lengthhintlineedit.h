@@ -3,13 +3,17 @@
 #include <QLabel>
 #include <QLineEdit>
 
+namespace roler {
+
 class LengthHintLineEdit : public QLineEdit {
     Q_OBJECT
 public:
     explicit LengthHintLineEdit(QWidget *parent = nullptr);
 
-    void setMaximumLength(int max_len);
-    int maximumLength() const;
+    // Hide QLineEdit::setMaxLength(int)
+    void setMaxLength(int max_len);
+
+    void setHintLabelVisible(bool visible = true);
 
 private:
     void init();
@@ -17,3 +21,5 @@ private:
 private:
     QLabel *m_hint_label;
 };
+
+}  // namespace roler
