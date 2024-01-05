@@ -54,7 +54,9 @@ set(WIDGETS_FILES
     ${INC_WIDGETS}/paginationwidget.h
     ${SRC_WIDGETS}/paginationwidget.cpp
     ${INC_WIDGETS}/lengthhintlineedit.h
-    ${SRC_WIDGETS}/lengthhintlineedit.cpp)
+    ${SRC_WIDGETS}/lengthhintlineedit.cpp
+    ${INC_WIDGETS}/autoclosemessagebox.h
+    ${SRC_WIDGETS}/autoclosemessagebox.cpp)
 
 set(SOURCE_FILES ${WIDGETS_FILES})
 

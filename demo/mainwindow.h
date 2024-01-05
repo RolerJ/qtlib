@@ -23,6 +23,7 @@ private:
     void initSyncCheckBox();
     void initPagingWidget();
     void initLengthHintLineEdit();
+    void initAutoCloseMessageBox();
 
 private:
     Ui::MainWindow *ui;

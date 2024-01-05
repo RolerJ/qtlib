@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <QPixmap>
 
+#include "roler/widgets/autoclosemessagebox.h"
 #include "roler/widgets/lengthhintlineedit.h"
 #include "roler/widgets/paginationwidget.h"
 #include "roler/widgets/passwordlineedit.h"
@@ -30,6 +31,7 @@ void MainWindow::init() {
     initSyncCheckBox();
     initPagingWidget();
     initLengthHintLineEdit();
+    initAutoCloseMessageBox();
 }
 
 void MainWindow::initPasswordLineEdit() {
@@ -80,4 +82,23 @@ void MainWindow::initLengthHintLineEdit() {
     int index = ui->stackedWidget->addWidget(widget);
     auto *action = m_widgets_menu->addAction("LengthHintLineEdit");
     connect(action, &QAction::triggered, this, [this, index]() { ui->stackedWidget->setCurrentIndex(index); });
+}
+
+void MainWindow::initAutoCloseMessageBox() {
+    QMenu *menu = m_widgets_menu->addMenu("AutoCloseMessageBox");
+
+    auto *action_show = menu->addAction("Show");
+    auto *action_exec = menu->addAction("Exec");
+    connect(action_show, &QAction::triggered, this, [this]() {
+        AutoCloseMessageBox *msgbox =
+            new AutoCloseMessageBox(QMessageBox::Information, "Title", "Contents Text", QMessageBox::Ok);
+        msgbox->setAttribute(Qt::WA_DeleteOnClose);
+        msgbox->showWithAutoClose(2000);
+    });
+    connect(action_exec, &QAction::triggered, this, [this]() {
+        AutoCloseMessageBox *msgbox =
+            new AutoCloseMessageBox(QMessageBox::Information, "Title", "Contents Text", QMessageBox::Ok);
+        msgbox->setAttribute(Qt::WA_DeleteOnClose);
+        msgbox->execWithAutoClose(2000);
+    });
 }
