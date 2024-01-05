@@ -30,7 +30,7 @@ endif()
 
 find_package(
   Qt5
-  COMPONENTS Widgets
+  COMPONENTS Widgets Svg
   REQUIRED)
 
 option(BUILD_DEMO "Build demo" ON)
@@ -60,7 +60,7 @@ set(SOURCE_FILES ${WIDGETS_FILES})
 
 add_library(roler-qtlib SHARED ${SOURCE_FILES})
 
-target_link_libraries(roler-qtlib Qt::Widgets)
+target_link_libraries(roler-qtlib Qt::Widgets Qt::Svg)
 
 if(BUILD_DEMO)
   message(STATUS "build demo")

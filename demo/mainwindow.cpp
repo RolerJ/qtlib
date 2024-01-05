@@ -34,7 +34,6 @@ void MainWindow::init() {
 
 void MainWindow::initPasswordLineEdit() {
     PasswordLineEdit *lineEdit = new PasswordLineEdit(this);
-    lineEdit->setSwitchIcons(QIcon("./resource/show.svg"), QIcon("./resource/hide.svg"));
     QWidget *widget = new QWidget(this);
     widget->setLayout(new QHBoxLayout);
     widget->layout()->addWidget(lineEdit);
