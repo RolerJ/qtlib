@@ -1,4 +1,4 @@
-#include "widgets/lengthhintlineedit.h"
+#include "roler/widgets/lengthhintlineedit.h"
 
 #include <QHBoxLayout>
 

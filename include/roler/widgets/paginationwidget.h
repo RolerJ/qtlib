@@ -1,5 +1,7 @@
 #pragma once
 
+#include "roler/roler_global.h"
+
 #include <QHBoxLayout>
 #include <QLineEdit>
 #include <QPushButton>
@@ -7,7 +9,7 @@
 
 namespace roler {
 
-class PaginationWidget : public QWidget {
+class ROLER_EXPORT PaginationWidget : public QWidget {
     Q_OBJECT
 
 public:

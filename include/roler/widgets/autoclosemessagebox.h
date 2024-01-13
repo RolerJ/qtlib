@@ -1,11 +1,13 @@
 #pragma once
 
+#include "roler/roler_global.h"
+
 #include <QMessageBox>
 #include <QTimer>
 
 namespace roler {
 
-class AutoCloseMessageBox : public QMessageBox {
+class ROLER_EXPORT AutoCloseMessageBox : public QMessageBox {
     Q_OBJECT
 
 public:

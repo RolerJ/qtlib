@@ -1,4 +1,4 @@
-#include "widgets/synccheckbox.h"
+#include "roler/widgets/synccheckbox.h"
 #include <qglobal.h>
 
 namespace roler {

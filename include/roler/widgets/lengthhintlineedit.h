@@ -1,11 +1,13 @@
 #pragma once
 
+#include "roler/roler_global.h"
+
 #include <QLabel>
 #include <QLineEdit>
 
 namespace roler {
 
-class LengthHintLineEdit : public QLineEdit {
+class ROLER_EXPORT LengthHintLineEdit : public QLineEdit {
     Q_OBJECT
 
 public:

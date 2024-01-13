@@ -1,11 +1,13 @@
 #pragma once
 
+#include "roler/roler_global.h"
+
 #include <QCheckBox>
 #include <list>
 
 namespace roler {
 
-class SyncCheckBox : public QCheckBox {
+class ROLER_EXPORT SyncCheckBox : public QCheckBox {
     Q_OBJECT
 
 public:

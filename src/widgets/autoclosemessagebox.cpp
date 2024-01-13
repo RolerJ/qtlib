@@ -1,4 +1,4 @@
-#include "widgets/autoclosemessagebox.h"
+#include "roler/widgets/autoclosemessagebox.h"
 
 namespace roler {
 

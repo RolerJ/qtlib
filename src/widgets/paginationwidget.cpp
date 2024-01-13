@@ -1,4 +1,4 @@
-#include "widgets/paginationwidget.h"
+#include "roler/widgets/paginationwidget.h"
 
 namespace roler {
 

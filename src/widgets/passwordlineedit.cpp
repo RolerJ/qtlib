@@ -1,4 +1,4 @@
-#include "widgets/passwordlineedit.h"
+#include "roler/widgets/passwordlineedit.h"
 
 #include <QAction>
 #include <QIcon>
