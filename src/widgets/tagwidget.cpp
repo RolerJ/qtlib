@@ -1,9 +1,9 @@
-#include "widgets/tagwidget.h"
+#include "roler/widgets/tagwidget.h"
 
 #include <QHBoxLayout>
 #include <QLabel>
 
-using namespace roler;
+namespace roler {
 
 TagLabel::TagLabel(QWidget *parent) : QWidget(parent) {
     init();
@@ -55,10 +55,7 @@ TagWidget::TagWidget(QWidget *parent) : QWidget(parent) {
     m_inputLineEdit = new QLineEdit(this);
     m_inputLineEdit->setPlaceholderText(tr("Input Label"));
     m_inputLineEdit->setMaximumWidth(100);
-    // TODO
-    // lineEdit限制条件
-    connect(m_inputLineEdit, &QLineEdit::returnPressed, this,
-            qOverload<>(&TagWidget::addTag));
+    connect(m_inputLineEdit, &QLineEdit::returnPressed, this, qOverload<>(&TagWidget::addTag));
     setCountPerRow(5);
     updateTags();
 }
@@ -175,3 +172,5 @@ void TagWidget::addTag() {
         m_inputLineEdit->clear();
     }
 }
+
+}  // namespace roler

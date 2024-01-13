@@ -20,8 +20,13 @@ private:
     void init();
     void initPasswordLineEdit();
     void initTagWidget();
+    void initSyncCheckBox();
+    void initPagingWidget();
+    void initLengthHintLineEdit();
+    void initAutoCloseMessageBox();
 
 private:
     Ui::MainWindow *ui;
+    QMenu *m_widgets_menu;
 };
 #endif  // MAINWINDOW_H

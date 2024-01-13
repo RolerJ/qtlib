@@ -25,33 +25,54 @@ set(CMAKE_AUTOUIC ON)
 
 if(MSVC)
   string(APPEND CMAKE_CXX_FLAGS " /Zc:__cpluscplus /MP")
+  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif()
 
 find_package(
   Qt5
-  COMPONENTS Widgets
+  COMPONENTS Widgets Svg
   REQUIRED)
 
 option(BUILD_DEMO "Build demo" ON)
 
 # main dir
-set(INC_DIR include/roler)
+set(INC_DIR include)
 set(SRC_DIR src)
 
-include_directories(${INC_DIR})
+set(GLOBALE_FILES ${INC_DIR}/roler/roler_global.h)
 
 # modules dir
-set(INC_WIDGETS ${INC_DIR}/widgets)
+set(INC_WIDGETS ${INC_DIR}/roler/widgets)
 set(SRC_WIDGETS ${SRC_DIR}/widgets)
 set(WIDGETS_FILES
-    ${INC_WIDGETS}/passwordlineedit.h ${SRC_WIDGETS}/passwordlineedit.cpp
-    ${INC_WIDGETS}/tagwidget.h ${SRC_WIDGETS}/tagwidget.cpp)
+    ${INC_WIDGETS}/passwordlineedit.h
+    ${SRC_WIDGETS}/passwordlineedit.cpp
+    ${INC_WIDGETS}/tagwidget.h
+    ${SRC_WIDGETS}/tagwidget.cpp
+    ${INC_WIDGETS}/synccheckbox.h
+    ${SRC_WIDGETS}/synccheckbox.cpp
+    ${INC_WIDGETS}/paginationwidget.h
+    ${SRC_WIDGETS}/paginationwidget.cpp
+    ${INC_WIDGETS}/lengthhintlineedit.h
+    ${SRC_WIDGETS}/lengthhintlineedit.cpp
+    ${INC_WIDGETS}/autoclosemessagebox.h
+    ${SRC_WIDGETS}/autoclosemessagebox.cpp)
 
-set(SOURCE_FILES ${WIDGETS_FILES})
+set(SOURCE_FILES
+  ${GLOBALE_FILES} 
+  ${WIDGETS_FILES}
+)
 
-add_library(roler-qtlib SHARED ${SOURCE_FILES})
+add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
 
-target_link_libraries(roler-qtlib Qt::Widgets)
+target_link_libraries(${PROJECT_NAME} Qt::Widgets Qt::Svg)
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE ROLER_LIBRARY)
+
+target_include_directories(
+  ${PROJECT_NAME} 
+  PUBLIC ${PROJECT_SOURCE_DIR}/include
+)
 
 if(BUILD_DEMO)
   message(STATUS "build demo")

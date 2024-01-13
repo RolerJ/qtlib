@@ -1,5 +1,7 @@
 #pragma once
 
+#include "roler/roler_global.h"
+
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
@@ -8,7 +10,7 @@
 
 namespace roler {
 
-class TagLabel : public QWidget {
+class ROLER_EXPORT TagLabel : public QWidget {
     Q_OBJECT
 
 public:
@@ -33,15 +35,12 @@ private:
     QPushButton *m_delete_btn;
 };
 
-class TagWidget : public QWidget {
+class ROLER_EXPORT TagWidget : public QWidget {
     Q_OBJECT
 
 public:
     TagWidget(QWidget *parent = nullptr);
     ~TagWidget() override;
-
-    // void setMaxLabelLength(int len);
-    // int maxLabelLength() const;
 
     void setCountPerRow(int count);
     int countPerRow() const;

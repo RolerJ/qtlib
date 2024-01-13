@@ -29,14 +29,6 @@
      <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuwidgets">
-    <property name="title">
-     <string>widgets</string>
-    </property>
-    <addaction name="action_PasswordLineEdit"/>
-    <addaction name="action_TagWidget"/>
-   </widget>
-   <addaction name="menuwidgets"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action_PasswordLineEdit">
@@ -47,6 +39,16 @@
   <action name="action_TagWidget">
    <property name="text">
     <string>TagWidget</string>
+   </property>
+  </action>
+  <action name="action_SyncCheckBox">
+   <property name="text">
+    <string>SyncCheckBox</string>
+   </property>
+  </action>
+  <action name="action_PagingWidget">
+   <property name="text">
+    <string>PagingWidget</string>
    </property>
   </action>
  </widget>
