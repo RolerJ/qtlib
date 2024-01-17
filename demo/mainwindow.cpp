@@ -1,9 +1,17 @@
 #include "mainwindow.h"
+#include <qboxlayout.h>
+#include <qpushbutton.h>
+#include <qstandarditemmodel.h>
 #include "./ui_mainwindow.h"
 
+#include <QHBoxLayout>
+#include <QHeaderView>
 #include <QIcon>
 #include <QLineEdit>
+#include <QListView>
 #include <QPixmap>
+#include <QStandardItemModel>
+#include <QTableView>
 
 #include "roler/widgets/autoclosemessagebox.h"
 #include "roler/widgets/lengthhintlineedit.h"
@@ -26,12 +34,56 @@ MainWindow::~MainWindow() {
 void MainWindow::init() {
     m_widgets_menu = ui->menubar->addMenu("Widgets");
 
+    initModelTest();
     initPasswordLineEdit();
     initTagWidget();
     initSyncCheckBox();
     initPagingWidget();
     initLengthHintLineEdit();
     initAutoCloseMessageBox();
+}
+
+void MainWindow::initModelTest() {
+    QWidget *widget = new QWidget(this);
+    QLineEdit *id_line_edit = new QLineEdit(widget);
+    QLineEdit *name_line_edit = new QLineEdit(widget);
+    QPushButton *add_btn = new QPushButton(widget);
+    QHBoxLayout *h_layout = new QHBoxLayout();
+    h_layout->addWidget(id_line_edit);
+    h_layout->addWidget(name_line_edit);
+    h_layout->addWidget(add_btn);
+    id_line_edit->setPlaceholderText("ID:");
+    name_line_edit->setPlaceholderText("Name:");
+    add_btn->setText("Add");
+    QListView *list_view = new QListView(widget);
+    QTableView *table_view = new QTableView(widget);
+    QVBoxLayout *v_layout = new QVBoxLayout();
+    widget->setLayout(v_layout);
+    v_layout->addLayout(h_layout);
+    QHBoxLayout *h_layout2 = new QHBoxLayout();
+    h_layout2->addWidget(list_view);
+    h_layout2->addWidget(table_view);
+    v_layout->addLayout(h_layout2);
+
+    QStandardItemModel *model = new QStandardItemModel();
+    model->setColumnCount(2);
+    model->setHorizontalHeaderLabels({"Id", "Name"});
+    list_view->setModel(model);
+    list_view->setModelColumn(1);
+    table_view->setModel(model);
+    table_view->horizontalHeader()->moveSection(0, 1);
+
+    connect(add_btn, &QPushButton::clicked, this, [=]() {
+        QString id = id_line_edit->text();
+        QString name = name_line_edit->text();
+        QStandardItem *id_item = new QStandardItem(id);
+        QStandardItem *name_item = new QStandardItem(name);
+        model->appendRow({id_item, name_item});
+    });
+
+    auto *action = m_widgets_menu->addAction("ModelTest");
+    int index = ui->stackedWidget->addWidget(widget);
+    connect(action, &QAction::triggered, this, [this, index]() { ui->stackedWidget->setCurrentIndex(index); });
 }
 
 void MainWindow::initPasswordLineEdit() {

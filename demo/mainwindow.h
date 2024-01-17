@@ -18,6 +18,7 @@ public:
 
 private:
     void init();
+    void initModelTest();
     void initPasswordLineEdit();
     void initTagWidget();
     void initSyncCheckBox();

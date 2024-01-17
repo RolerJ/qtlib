@@ -8,3 +8,5 @@ target_link_libraries(
   demo
   PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
   PRIVATE roler-qtlib)
+
+set_target_properties(demo PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
