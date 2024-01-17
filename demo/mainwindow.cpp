@@ -141,13 +141,13 @@ void MainWindow::initAutoCloseMessageBox() {
 
     auto *action_show = menu->addAction("Show");
     auto *action_exec = menu->addAction("Exec");
-    connect(action_show, &QAction::triggered, this, [this]() {
+    connect(action_show, &QAction::triggered, this, []() {
         AutoCloseMessageBox *msgbox =
             new AutoCloseMessageBox(QMessageBox::Information, "Title", "Contents Text", QMessageBox::Ok);
         msgbox->setAttribute(Qt::WA_DeleteOnClose);
         msgbox->showWithAutoClose(2000);
     });
-    connect(action_exec, &QAction::triggered, this, [this]() {
+    connect(action_exec, &QAction::triggered, this, []() {
         AutoCloseMessageBox *msgbox =
             new AutoCloseMessageBox(QMessageBox::Information, "Title", "Contents Text", QMessageBox::Ok);
         msgbox->setAttribute(Qt::WA_DeleteOnClose);
